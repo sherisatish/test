@@ -7,7 +7,8 @@
   <groupId>com.mycompany.app</groupId>
   <artifactId>loanone</artifactId>
   <version>1.0-SNAPSHOT</version>
-
+  <packaging>jar</packaging>
+  
   <name>loanone</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
