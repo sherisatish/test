@@ -4,22 +4,28 @@ agent any
     
     stages{
     
-        stage("build") {
+        stage("compile stage") {
             
             steps {
-                echo 'buliding the application'
+                withmaven(maven : "maven_3.6.3") {
+                sh 'mvn clean compile'
+                }
             }
         }
-        stage("test") {
+        stage("testing stage") {
             
             steps {
-                echo 'testing the application'
+                withmaven(maven : "maven_3.6.3"){
+                sh 'mvn test' 
+                }
             }
         }
-        stage("deploy") {
+        stage("deploying stage") {
             
             steps {
-                echo 'deploying the application'
+                withmaven(maven : "maven_3.6.3"){
+                sh 'mvn deploy'
+                }
             }
         }
     }
