@@ -21,7 +21,7 @@ agent any
         stage("deploying stage") {
             
             steps {
-                sh 'mvn deploy'
+                sh 'mvn archetype:generate'
                 
             }
         }
