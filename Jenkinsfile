@@ -1,15 +1,32 @@
-pipeline{
-agent any
+pipeline {
+    agent any
 
-stages {
-stage ('code checkout'){
-echo "Code checkout from git"
-}
-stage ('Build'){
-echo "building the code using builld tool"
-}
-stage ('Deploy'){
-echo "deploy the package to application server"
-}
-}
+    stages {
+        stage ('Compile Stage') {
+
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn clean compile'
+                }
+            }
+        }
+
+        stage ('Testing Stage') {
+
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+
+        stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'maven_3_5_0') {
+                    sh 'mvn deploy'
+                }
+            }
+        }
+    }
 }
