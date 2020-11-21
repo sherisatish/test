@@ -21,7 +21,8 @@ agent any
         stage("deploying stage") {
             
             steps {
-                sh 'mvn archetype:generate -DgroupId=fr.myGroupId -DartifactId=MyApplication -Dpackagename=fr.myGroupId -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false -Dversion=1 -e'
+                sh 'mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+ -Dversion=1 -e'
                 
             }
         }
